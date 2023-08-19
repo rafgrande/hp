@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from 'react';
 
 import List from './components/List'
 import styles from './styles/Page.module.scss'
@@ -18,18 +20,37 @@ const roboto = Roboto({
 })
 
 
-export default async function Home() {
+export default function Home() {
 
-  const res = await fetch('https://hp-api.onrender.com/api/characters')
-  const data = await res.json()
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+  const [isLoading, setLoading] = useState(true)
 
-  const filter = data.filter((d: any,i: number) =>  i < 12)
+  useEffect(() => {
+    fetch('https://hp-api.onrender.com/api/characters')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
+ 
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No characters data</p>
+
+
+  const init = page > 1 ? (page-1) * 12 : 0;
+
+  const filter = data.filter((d: any,i: number) =>   i >= init && i < page*12)
 
   return (
     <main className={`${styles.main} ${roboto.className}`}>
       <div className={`${myFont.className} ${styles.main__title}`}>Harry Potter characters</div>
-      <List characters= {filter} />
-
+      <section className={styles.main__list}>
+        <button className={styles.main__list__arrow} onClick={() => setPage(page>1 ? page-1 : 0)}>{`<`}</button>
+        <List characters= {filter} />
+        <button  className={styles.main__list__arrow} onClick={() => setPage(page+1)}>{`>`}</button>
+      </section>
     </main>
   )
 }

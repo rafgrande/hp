@@ -8,4 +8,27 @@
         text-align: center;
         padding: 1rem 0;
     }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        padding: 0.25rem;
+
+        &__arrow {
+            border-radius: 100%;
+            width: 55px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #fff;
+            padding: 2px;
+            box-sizing: border-box;
+            background-color: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+    }
+
 }

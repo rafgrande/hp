@@ -7,7 +7,6 @@ interface IProps {
 }
 
 const List = ({characters}: IProps) => {
-    console.log('jj', characters)
     return (
         <section className={styles.list}>
             {
