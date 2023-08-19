@@ -35,7 +35,6 @@ export default function Home() {
       })
   }, [])
  
-  if (isLoading) return <p>Loading...</p>
   if (!data) return <p>No characters data</p>
 
 
@@ -46,12 +45,20 @@ export default function Home() {
   return (
     <main className={`${styles.main} ${roboto.className}`}>
       <div className={`${myFont.className} ${styles.main__title}`}>Harry Potter characters</div>
-      <section className={styles.main__list}>
-        <button className={styles.main__list__arrow} onClick={() => setPage(page>1 ? page-1 : 0)}>{`<`}</button>
-        <List characters= {filter} />
-        <button  className={styles.main__list__arrow} onClick={() => setPage(page+1)}>{`>`}</button>
-      </section>
+      {
+        !isLoading 
+        ? (
+          <section className={styles.main__list}>
+            <button className={styles.main__list__arrow} onClick={() => setPage(page>1 ? page-1 : 1)}>{`<`}</button>
+            <List characters= {filter} />
+            <button  className={styles.main__list__arrow} onClick={() => setPage(page+1)}>{`>`}</button>
+          </section>
+        )
+        : (
+          <p className={styles.main__loading}>Loading ...</p>
+        )
+      }
+      
     </main>
   )
 }
-

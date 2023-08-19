@@ -32,7 +32,7 @@ const Card = ({character} :IProps) => {
         <section className={styles.card}>
             <div className={`${styles.card__house} ${getHouseStyle(character.house)}`}></div>
             <div className={styles.card__image}>
-                <img src={character.image} width={300} height={400}/>
+                <img src={character.image || '/user.png'} width={300} height={400}/>
             </div>
             
             <div className={styles.card__info}>
