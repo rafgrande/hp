@@ -1,4 +1,11 @@
 .main {
     background-color: #121212;
-    height: 100vh;
+    min-height: 100vh;
+
+    &__title {
+        font-size: 4rem;
+        color: #eab308;
+        text-align: center;
+        padding: 1rem 0;
+    }
 }
