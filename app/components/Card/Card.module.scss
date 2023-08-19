@@ -1,0 +1,15 @@
+.container {
+    background-color: #78716c;
+
+    &__name {
+        display: flex;
+
+        &__person {
+            font-size: 18px
+        }
+
+        &__actor {
+            font-size: 14px;
+        }
+    }
+}
