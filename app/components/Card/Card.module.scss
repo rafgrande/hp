@@ -1,15 +1,45 @@
-.container {
-    background-color: #78716c;
+.card {
+    background-color: #44403c;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    border-radius: 0.625rem;
+    overflow: hidden;
 
-    &__name {
-        display: flex;
+    &__house {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 3.125rem;
+        height: 3.125rem;
 
-        &__person {
-            font-size: 18px
-        }
-
-        &__actor {
-            font-size: 14px;
+        &__Slytherin {
+            background-image: url('/slytherin.png');
         }
     }
+
+    &__info{
+        padding: 0 1rem 1rem;
+        color: #fff;
+        display: flex;
+        gap: .5rem;
+        flex-direction: column;
+
+        &__name {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.125rem;
+    
+            &__person {
+                font-size: 1.125rem;
+                font-weight: bold;
+            }
+    
+            &__actor {
+                font-size: 0.875rem;
+            }
+        }
+    }
+
 }
