@@ -16,7 +16,33 @@
 
         &__Slytherin {
             background-image: url('/slytherin.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
+        &__Gryffindor {
+            background-image: url('/gryffindor.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &__Ravenclaw {
+            background-image: url('/ravenclaw.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        &__Hufflepuff {
+            background-image: url('/hufflepuff.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }        
+    }
+
+    &__image {
+        display: flex;
+        align-items: center;
     }
 
     &__info{

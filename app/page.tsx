@@ -8,23 +8,29 @@ const myFont = localFont({ src: './fonts/HarryP.ttf' })
 interface IHOME {
   data: any;
 }
+import { Roboto } from 'next/font/google'
 
-export default function Home(props: IHOME) {
-  console.log('de', props)
+const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'normal'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+
+export default async function Home() {
+
+  const res = await fetch('https://hp-api.onrender.com/api/characters')
+  const data = await res.json()
+
+  const filter = data.filter((d: any,i: number) =>  i < 12)
+
   return (
-    <main className={styles.main}>
-      <div className={`${myFont.className} ${styles.main__title}`}>Persons Harry Potter</div>
-      <List />
+    <main className={`${styles.main} ${roboto.className}`}>
+      <div className={`${myFont.className} ${styles.main__title}`}>Harry Potter characters</div>
+      <List characters= {filter} />
 
     </main>
   )
 }
 
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`https://hp-api.onrender.com/api/characters`)
-  const data = await res.json()
- 
-  // Pass data to the page via props
-  return { props: { data } }
-}
