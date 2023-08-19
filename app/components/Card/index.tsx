@@ -30,17 +30,19 @@ const Card = ({character} :IProps) => {
     const houseName = styles.card__house__Slytherin
     return (
         <section className={styles.card}>
-            <div className={`${styles.card__house} ${getHouseStyle(character.house)}`}></div>
-            <div className={styles.card__image}>
-                <img src={character.image || '/user.png'} width={300} height={400}/>
-            </div>
-            
-            <div className={styles.card__info}>
-                    <span className={styles.card__info__name__person}>{character.name}</span>
-                    <span className={styles.card__info__name__actor}>({character.actor})</span>
+            <a href={`/${character.id}`}>
+                <div className={`${styles.card__house} ${getHouseStyle(character.house)}`}></div>
+                <div className={styles.card__image}>
+                    <img src={character.image || '/user.png'} width={300} height={400}/>
+                </div>
+                
+                <div className={styles.card__info}>
+                        <span className={styles.card__info__name__person}>{character.name}</span>
+                        <span className={styles.card__info__name__actor}>({character.actor})</span>
 
-                <span className={styles.card__info__dateOfBirth}>{character.dateOfBirth}</span>
-            </div>
+                    <span className={styles.card__info__dateOfBirth}>{character.dateOfBirth}</span>
+                </div>
+            </a>
         </section>
     )
 }

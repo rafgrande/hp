@@ -40,7 +40,7 @@ export default function Home() {
 
   const init = page > 1 ? (page-1) * 12 : 0;
 
-  const filter = data.filter((d: any,i: number) =>   i >= init && i < page*12)
+  const filter = data.filter((d: any,i: number) => i >= init && i < page*12)
 
   return (
     <main className={`${styles.main} ${roboto.className}`}>

@@ -1,6 +1,6 @@
 import IWand from "./IWand";
 
-export default interface ICharacters {
+export default interface ICharacter {
     id: string,
     name: string,
     alternate_names: string[],

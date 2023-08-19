@@ -1,0 +1,26 @@
+.character {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid;
+
+        &__image {
+            border-radius: 100%;
+            width: 150px;
+            height: 150px;
+        }
+
+        &__name {
+            font-size: 2.5rem;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+}
