@@ -18,7 +18,7 @@ export default interface ICharacter {
     hogwartsStudent: boolean,
     hogwartsStaff: boolean,
     actor: string,
-    alternate_actors: [],
+    alternate_actors: string[],
     alive: boolean,
     image: string
 }

@@ -22,5 +22,44 @@
             justify-content: center;
         }
     }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0.325rem;
+
+        &__title {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        &__attr {
+            display: flex;
+
+            &__key {
+                width: 50%;
+                text-align: right;
+                padding: 0 0.325rem;
+            }
+
+            &__value {
+                width: 50%;
+                padding: 0 0.325rem;
+            }
+        }
+
+        &__attrArr {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.325rem;
+
+            &__values {
+                display: flex;
+                gap: 0.325rem;
+            }
+        }
+    }
     
 }
