@@ -23,8 +23,8 @@ export function Attr({name, value}: IPropsAttr) {
         <div className={styles.character__info__attrArr}>
             <div>{name}</div>
             <div className={styles.character__info__attrArr__values}>
-                {value.map(v => (
-                    <span>{v}</span>
+                {value.map((v,i) => (
+                    <span key={i}>{v}</span>
                 ))}
             </div>
         </div>
