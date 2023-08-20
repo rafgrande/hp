@@ -15,7 +15,7 @@ interface IPropsAttr {
     value: any
 }
 
-export function Attr({name, value}: IPropsAttr) {
+function Attr({name, value}: IPropsAttr) {
     if(name === "id" || name === "name" || name === "image") return null
 
     if(typeof value === "object" && Array.isArray(value)) {
