@@ -70,10 +70,10 @@ export default async function Category( {params}: IProps ) {
             <div className={styles.character__info}>
                 <span className={styles.character__info__title}>Bio</span>
                 {
-                    attributes.map((attribute) => {
+                    attributes.map((attribute, index) => {
                         const [key, value] = attribute
                         return (
-                            <Attr key={key} name={key} value={value}/>
+                            <Attr key={index} name={key} value={value}/>
                         )
                     }
 
