@@ -26,8 +26,6 @@ const getHouseStyle = (house: string) => {
 }
 
 const Card = ({character} :IProps) => {
-
-    const houseName = styles.card__house__Slytherin
     return (
         <section className={styles.card}>
             <a href={`/${character.id}`}>

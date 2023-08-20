@@ -24,7 +24,8 @@ export default function Home() {
 
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true);
+  const [house, setHouse] = useState('');
 
   useEffect(() => {
     fetch('https://hp-api.onrender.com/api/characters')
@@ -40,11 +41,20 @@ export default function Home() {
 
   const init = page > 1 ? (page-1) * 12 : 0;
 
-  const filter = data.filter((d: any,i: number) => i >= init && i < page*12)
+  const filter = data.filter((d: any,i: number) => i >= init && i < page*12  && (house === "" || house === d.house))
 
   return (
     <main className={`${styles.main} ${roboto.className}`}>
       <div className={`${myFont.className} ${styles.main__title}`}>Harry Potter characters</div>
+      <section className={styles.main__filters}>
+          <span>Filters</span>
+          <div className={styles.main__filters__options}>
+            <span className={`${styles.main__filters__options__opt} ${house === 'Slytherin' && styles.main__filters__options__opt__ative}`} onClick={() => setHouse(house != 'Slytherin' ? 'Slytherin' : '')}>Slytherin</span>
+            <span className={`${styles.main__filters__options__opt} ${house === 'Gryffindor' && styles.main__filters__options__opt__ative}`} onClick={() => setHouse(house != 'Gryffindor' ? 'Gryffindor' : '')}>Gryffindor</span>
+            <span className={`${styles.main__filters__options__opt} ${house === 'Hufflepuff' && styles.main__filters__options__opt__ative}`} onClick={() => setHouse(house != 'Hufflepuff' ? 'Hufflepuff' : '')}>Hufflepuff</span>
+            <span className={`${styles.main__filters__options__opt} ${house === 'Ravenclaw' && styles.main__filters__options__opt__ative}`} onClick={() => setHouse(house != 'Ravenclaw' ? 'Ravenclaw' : '')}>Ravenclaw</span>
+          </div>
+      </section>
       {
         !isLoading 
         ? (
